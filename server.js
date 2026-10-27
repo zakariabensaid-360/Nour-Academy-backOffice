@@ -11,7 +11,7 @@ app.get('/about.html', (req, res) => {
 });
 
 app.get('/process.html', (req, res) => {
-  res.sendFile(path.join(__dirname, './pages/process.html'));
+  res.sendFile(path.join(__dirname, './pages/form.html'));
 
 });
 
@@ -19,6 +19,10 @@ app.get('/valid', (req, res) => {
   res.sendFile(path.join(__dirname, './pages/valid.html'));
 });
 
+
+app.get('/login.html', (req, res) => {
+  res.sendFile(path.join(__dirname, './pages/login.html'));
+});
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));

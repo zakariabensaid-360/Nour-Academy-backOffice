@@ -1,4 +1,4 @@
-let data = [
+let courses = [
   {
     id: "c1",
     title: "Soutien Mathématiques",
@@ -121,34 +121,57 @@ let data = [
   },
 ];
 
-if (window.localStorage.getItem("db") == undefined) {
-  window.localStorage.setItem("db", JSON.stringify(data));
+/* main logic */
+let search = document.getElementById("search")
+let locationSelect = document.getElementById("location");
+let levelSelect = document.getElementById("level");
+let subjectSelect = document.getElementById("subject");
+let main = document.getElementById("cards");
+let CartLogo = document.getElementById("cart")
+let CartNum = document.getElementById("CartNum")
+
+// courses
+if (window.localStorage.getItem("courses") == undefined) {
+  window.localStorage.setItem("courses", JSON.stringify(data));
 }
 
-let db = JSON.parse(window.localStorage.getItem("db"));
-let main = document.getElementById("cards");
- // let modal = document.getElementById("modal")
-let cart = document.getElementById("cart")
-let cart_num = document.getElementById("cart-num")
+// students
+if(window.localStorage.getItem("students") == undefined) {
+  window.localStorage.setItem("students", JSON.stringify([]))
+}
+// CartItems
+if(window.localStorage.getItem("CartItems") == undefined) {
+    window.localStorage.setItem("CartItems", JSON.stringify([]))
+}
+// Admin
+if(window.localStorage.getItem("admin") == undefined) {
+  window.localStorage.setItem("admin", JSON.stringify({
+    email: "admin@gmail.com",
+    password: "admin"
+  }))
+}
 
 
-cart.addEventListener("click", () => {
-  if(cart_num.textContent == 0) {
+let cartitems = JSON.parse(window.localStorage.getItem("CartItems"))
+let db = data
+
+
+
+
+CartLogo.addEventListener("click", () => {
+  if(CartNum.textContent == 0) {
     return
   }
-  window.location.href = "/process.html"
+  window.location.href = "/form.html"
 })
   
 
-let cartitems = []
-cart_num.textContent = cartitems.length
-  if(cart_num.textContent == 0) {
-    cart_num.classList += " hidden"
+
+CartNum.textContent = cartitems.length
+  if(CartNum.textContent == 0) {
+    CartNum.classList += " hidden"
   }
-/*
-  const hide = () => {
-    modal.className += " hidden"
-  }*/
+
 
 const findItemByid = (id) => {
   for (let i = 0; i < cartitems.length; i++) {
@@ -181,8 +204,8 @@ function addtocart(id) {
 
 if(findItemByid(id)) return alert("you cannot add same course twice");
 removeSeat(id)
-  cart_num.classList.remove("hidden")  
-  cart_num.textContent = Number(cart_num.textContent) + 1
+  CartNum.classList.remove("hidden")  
+  CartNum.textContent = Number(CartNum.textContent) + 1
   for(let i = 0; i < db.length; i++) {
     if(db[i].id == id)
     cartitems.push(db[i])
@@ -193,6 +216,38 @@ window.addtocart = addtocart;
 
 console.log("test")
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  render cards && filtering */
+
+
+
 const rerender = (itemsToRender) => {
     main.innerHTML = "";
     itemsToRender.forEach((item) => {
@@ -236,10 +291,10 @@ const rerender = (itemsToRender) => {
 
 rerender(db);
 
-let search = document.getElementById("search")
-let locationSelect = document.getElementById("location");
-let levelSelect = document.getElementById("level");
-let subjectSelect = document.getElementById("subject");
+
+
+
+
 
 const applyFilters = () => {
   
