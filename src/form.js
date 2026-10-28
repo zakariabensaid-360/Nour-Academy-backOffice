@@ -17,7 +17,7 @@ const items = JSON.parse(window.localStorage.getItem("CartItems"))
 const students = JSON.parse(window.localStorage.getItem("students"))
 
 /*  validation */
-phoneValidation(phoneInput, telErr)
+phoneValidation(phoneInput, telErr, submitButton)
 passwordValidation(passwordInput, passwordError)
 confirmValidation(confirmInput, conformError, passwordInput)
 
@@ -48,10 +48,9 @@ submitButton.addEventListener("click", (event) => {
   const parentLienVal = document.getElementById("parent_lien").value;
   const parentEmailVal = document.getElementById("parent_email").value;
 
-  let counter = 1
 
   const data = {
-    id: counter,
+    id: "NA-" + String(Date.now()),
     prenom: prenomVal,
     nom: nomVal,
     date: dobVal,
@@ -67,7 +66,8 @@ submitButton.addEventListener("click", (event) => {
   }
 
   /* CREATE STUDENT */ 
+
 students.push(data)
-window.localStorage.setItem("students", JSON.stringify(data))
-counter++
+window.localStorage.setItem("students", JSON.stringify(students))
+
 });
