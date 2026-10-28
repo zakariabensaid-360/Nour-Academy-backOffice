@@ -1,34 +1,37 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr" class="h-full bg-slate-50">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>nour-academy</title>
+    <title>Nos Cours - Nour Academy</title>
   </head>
-  <body>
-    <header class="flex justify-between p-4 items-center bg-cyan-50">
-      <div class="flex justify-center items-center">
-        <img width="150px" height="150px" src="./public/logo.svg" />
-        <div class="flex flex-col gap-1">
-          <h1 class="text-2xl text-cyan-700 font-black">Nour Academy</h1>
-          <p class="text-gray-500">The Best academy</p>
+  <body class="min-h-screen flex flex-col justify-between text-slate-800 antialiased">
+    
+    <!-- Header -->
+    <header class="flex justify-between items-center px-8 py-4 bg-white border-b border-cyan-100 shadow-xs sticky top-0 z-50">
+      <div class="flex items-center gap-4">
+        <img width="48" height="48" src="./public/logo.svg" alt="Nour Academy Logo" class="object-contain" />
+        <div class="flex flex-col">
+          <h1 class="text-xl text-cyan-700 font-black tracking-tight">Nour Academy</h1>
+          <p class="text-xs text-slate-400 font-medium">The Best academy</p>
         </div>
       </div>
 
-      <ul class=" gap-4  text-lg font-bold text-cyan-700 hidden md:flex">
-        <li><a href="">About</a></li>
-        <li><a href="">Contact</a></li>
-        <li><a href="">Home</a></li>
-      </ul>
-      <div id="cart" class="bg-cyan-200 rounded-full relative cursor-pointer">
+      <!-- Navigation Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-bold text-slate-600">
+        <a href="#" class="hover:text-cyan-700 transition">Home</a>
+        <a href="#" class="hover:text-cyan-700 transition">About</a>
+        <a href="#" class="hover:text-cyan-700 transition">Contact</a>
+      </nav>
+
+      <!-- Cart Badge Wrapper -->
+      <div id="cart" class="bg-cyan-50 border border-cyan-200 rounded-2xl p-2.5 relative cursor-pointer flex items-center gap-3 shadow-xs hover:bg-cyan-100 transition">
         <svg
-          class="size-16 text-cyan-700 p-4"
-          xmlns="http://w3.org"
+          class="w-6 h-6 text-cyan-700"
+          xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
-          width="100%"
-          height="100%"
           fill="none"
           stroke="currentColor"
           stroke-width="2"
@@ -36,85 +39,111 @@
           stroke-linejoin="round"
         >
           <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
-
           <line x1="3" y1="6" x2="21" y2="6" />
-
           <path d="M16 10a4 4 0 0 1-8 0" />
-
-          <span class="absolute inset-0 flex items-end z-10">
-            <h1
-              id="CartNum"
-              class="bg-red-600 px-2 text-white font-bold rounded-full"
-            >
-              0
-            </h1>
-          </span>
         </svg>
+        <span class="absolute -top-1.5 -right-1.5 flex items-center justify-center">
+          <span
+            id="CartNum"
+            class="bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-md"
+          >
+            0
+          </span>
+        </span>
       </div>
     </header>
 
-    <main class="flex flex-col gap-2 p-4 justify-center items-center">
-      <h1 class="text-cyan-700 text-4xl font-bold pb-6">Our Courses</h1>
-      <div class="flex flex-col gap-4">
-        <label>
-          <h1>Search</h1>
-          <input
-            id="search"
-            value=""
-            placeholder="search for your course"
-            class="p-2 border-cyan-700 border-2 rounded-lg pr-6"
-            type="text"
-          />
-        </label>
-
-        <div class="flex gap-3">
-          <select
-            class="p-2 border-2 border-cyan-700 rounded-lg"
-            name="select"
-            id="level"
-          >
-            <option value="">All Levels</option>
-            <option value="1ère Bac">1ère Bac</option>
-            <option value="2ème Bac">2ème Bac</option>
-            <option value="Primaire">Primaire</option>
-            <option value="Collège">Collège</option>
-          </select>
-          <select
-            class="p-2 border-2 border-cyan-700 rounded-lg"
-            name="select"
-            id="location"
-          >
-            <option value="">All Locations</option>
-            <option value="Nador Centre">Nador Centre</option>
-            <option value="Hay Al Matar">Hay Al Matar</option>
-            <option value="Selouane">Selouane</option>
-          </select>
-
-          <select
-            class="p-2 border-2 border-cyan-700 rounded-lg"
-            id="subject"
-            name="select"
-          >
-            <option value="">All Subjects</option>
-            <option value="Mathématiques">Mathématiques</option>
-            <option value="Français">Français</option>
-            <option value="Physique-Chimie">Physique-Chimie</option>
-            <option value="SVT">SVT</option>
-            <option value="Anglais">Anglais</option>
-            <option value="Philosophie">Philosophie</option>
-          </select>
-        </div>
+    <!-- Main Content -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 py-10 flex flex-col gap-8">
+      
+      <!-- Page Title & Subtitle -->
+      <div class="text-center space-y-2">
+        <h2 class="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">Our Courses</h2>
+        <p class="text-slate-500 text-sm max-w-md mx-auto">Découvrez notre sélection de cours d'excellence adaptés à tous les niveaux scolaires.</p>
       </div>
 
+      <!-- Search & Filters Toolbar -->
+      <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex flex-col gap-6">
+        
+        <!-- Search Bar -->
+        <div class="w-full">
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2" for="search">Rechercher un cours</label>
+          <div class="relative">
+            <input
+              id="search"
+              value=""
+              placeholder="Ex: Mathématiques, Physique..."
+              class="w-full px-4 py-3.5 pl-11 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition text-slate-800 placeholder-slate-400 text-sm bg-slate-50/50"
+              type="text"
+            />
+            <svg class="w-5 h-5 text-slate-400 absolute left-3.5 top-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+          </div>
+        </div>
+
+        <!-- Filter Dropdowns Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">Niveau</label>
+            <select
+              class="w-full p-3.5 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition text-slate-700 bg-slate-50/50 text-sm font-medium"
+              name="select"
+              id="level"
+            >
+              <option value="">All Levels</option>
+              <option value="1ère Bac">1ère Bac</option>
+              <option value="2ème Bac">2ème Bac</option>
+              <option value="Primaire">Primaire</option>
+              <option value="Collège">Collège</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">Centre / Lieu</label>
+            <select
+              class="w-full p-3.5 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition text-slate-700 bg-slate-50/50 text-sm font-medium"
+              name="select"
+              id="location"
+            >
+              <option value="">All Locations</option>
+              <option value="Nador Centre">Nador Centre</option>
+              <option value="Hay Al Matar">Hay Al Matar</option>
+              <option value="Selouane">Selouane</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">Matière</label>
+            <select
+              class="w-full p-3.5 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition text-slate-700 bg-slate-50/50 text-sm font-medium"
+              id="subject"
+              name="select"
+            >
+              <option value="">All Subjects</option>
+              <option value="Mathématiques">Mathématiques</option>
+              <option value="Français">Français</option>
+              <option value="Physique-Chimie">Physique-Chimie</option>
+              <option value="SVT">SVT</option>
+              <option value="Anglais">Anglais</option>
+              <option value="Philosophie">Philosophie</option>
+            </select>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Course Cards Container (Dynamically rendered by main.js) -->
       <section
         id="cards"
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4 gap-4"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
       ></section>
+      
     </main>
 
-    <footer class="bg-cyan-700 text-white text-center font-bold p-4">
+    <!-- Footer -->
+    <footer class="bg-cyan-800 text-white text-center font-bold p-5 text-sm">
       © Nour Academy - 2026
     </footer>
+
     <script src="./src/main.js"></script>
   </body>
 </html>

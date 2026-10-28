@@ -212,9 +212,9 @@ removeSeat(id)
   }
 window.addtocart = addtocart;
 
-    window.localStorage.setItem("cart_items", JSON.stringify(cartitems))
+    window.localStorage.setItem("CartItems", JSON.stringify(cartitems))
 
-console.log("test")
+
 }
 
 

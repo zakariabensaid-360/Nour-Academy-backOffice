@@ -7,6 +7,7 @@ const passwordError = document.getElementById("password-error");
 const conformError = document.getElementById("confirm-error")
 const passwordInput = document.getElementById("password");
 const confirmInput = document.getElementById("confirm");
+import { DisplayCartItems } from "../components/DisplayCartItems.js";
 import { phoneValidation } from "../validation/phoneValidate.js";
 import { confirmValidation } from "../validation/confrimValidation.js";
 import { passwordValidation } from "../validation/passwordValidation.js";

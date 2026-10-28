@@ -1,5 +1,5 @@
-function DisplayCartItems(section, totalprice, items) {
-  let totalprice = 0;
+export function DisplayCartItems(section, TotalPriceElement, items) {
+  let totalprice = 0
   let item;
   for (let i = 0; i < items.length; i++) {
     item = items[i];

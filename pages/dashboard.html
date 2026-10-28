@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="h-full bg-slate-50">
 
 <head>
   <meta charset="UTF-8">
@@ -8,131 +8,163 @@
   <title>Dashboard - Nour Academy</title>
 </head>
 
-<body class="min-h-screen bg-gray-50 text-gray-900 m-0 p-0">
-  <div class="flex min-h-screen ">
-    <!-- sidebar -->
-    <aside class="w-60 shrink-0 min-h-screen p-4 flex flex-col  bg-[#20385B] gap-6">
-      <a href="#dashboard" class="flex justify-center items-center hover:shadow-xl">
-        <img src="logo.webp" alt="Nour Academy">
+<body class="min-h-screen text-slate-800 m-0 p-0 antialiased flex">
+
+  <!-- Sidebar -->
+  <aside class="w-64 shrink-0 bg-slate-900 text-slate-300 flex flex-col border-r border-slate-800 shadow-xl min-h-screen">
+    <div class="p-6 border-b border-slate-800 flex items-center gap-3">
+      <div class="h-10 w-10 rounded-xl bg-cyan-500 flex items-center justify-center text-white font-black text-lg shadow-lg shadow-cyan-500/30">N</div>
+      <div>
+        <h1 class="font-bold text-white tracking-wide">Nour Academy</h1>
+        <p class="text-xs text-slate-400">Espace Secrétariat</p>
+      </div>
+    </div>
+
+    <nav class="flex-1 p-4 space-y-2 font-medium">
+      <a href="#dashboard" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-cyan-600 text-white shadow-lg shadow-cyan-600/20 transition">
+        Tableau de bord
       </a>
-      <nav class="font-bold py-5">
-        <ul class="flex flex-col gap-5 text-center cursor-pointer  ">
-          <li><a href="#dashboard"
-              class="block w-full border rounded-lg py-3 hover:shadow-xl hover:text-white hover:bg-blue-500/30">Tableau
-              de bord</a></li>
-          <li><a href="#inscriptions"
-              class="block w-full border rounded-lg py-3 hover:shadow-xl hover:text-white hover:bg-blue-500/30">Inscriptions</a>
-          </li>
-          <li><a href="#ajouter-inscription"
-              class="block w-full border rounded-lg py-3 hover:shadow-xl hover:text-white hover:bg-blue-500/30">Ajouter
-              inscription</a></li>
-        </ul>
-      </nav>
-    </aside>
+      <a href="#inscriptions" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 hover:text-white transition">
+        Inscriptions
+      </a>
+      <a href="#ajouter-inscription" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 hover:text-white transition">
+        Ajouter inscription
+      </a>
+    </nav>
+  </aside>
 
-    <!-- main -->
-    <main class="flex-1 min-w-0">
-      <!-- Navbar -->
-      <header class="flex items-center justify-end gap-4 w-full bg-white px-6 py-4 border border-gray-300">
-        <div class="border border-gray-300 rounded-lg p-2 font-semibold cursor-pointer hover:shadow-lg">
-          <select name="centre" id="centre">
-            <option value="massira">Centre Al Massira</option>
-            <option value="nador">Nador Centre</option>
-            <option value="selouane">Selouane</option>
-          </select>
+  <!-- Main Content Wrapper -->
+  <div class="flex-1 flex flex-col min-w-0">
+    
+    <!-- Header / Navbar -->
+    <header class="bg-white border-b border-slate-200 px-8 py-4 flex items-center justify-between shadow-xs sticky top-0 z-10">
+      <div class="flex items-center gap-3">
+        <span class="text-xs uppercase tracking-wider font-bold text-slate-400">Centre :</span>
+        <select name="centre" id="centre" class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition">
+          <option value="massira">Centre Al Massira</option>
+          <option value="nador" selected>Nador Centre</option>
+          <option value="selouane">Selouane</option>
+        </select>
+      </div>
+
+      <!-- User Profile -->
+      <div class="flex items-center gap-3 pl-4 border-l border-slate-200">
+        <div class="h-10 w-10 rounded-full bg-cyan-100 text-cyan-700 font-bold flex items-center justify-center shadow-inner">
+          K
+        </div>
+        <div class="text-sm">
+          <p class="font-bold text-slate-800">Khadija</p>
+          <p class="text-xs text-slate-500">Secrétaire</p>
+        </div>
+        <span class="text-slate-400 ml-1">▾</span>
+      </div>
+    </header>
+
+    <!-- Main Section -->
+    <main class="flex-1 p-8 space-y-8 max-w-7xl w-full mx-auto">
+      
+      <!-- Page Title -->
+      <div class="flex flex-col gap-1">
+        <h2 class="text-2xl font-black text-slate-900 tracking-tight">Tableau de bord</h2>
+        <p class="text-sm text-slate-500">Vue d'ensemble de votre centre et des inscriptions récentes.</p>
+      </div>
+
+      <!-- Stats Grid -->
+      <section class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
+        
+        <!-- Card 1: Total -->
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs hover:shadow-md transition">
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-medium text-slate-500">Total des inscrits</p>
+            <span class="h-8 w-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xs font-bold">📁</span>
+          </div>
+          <p class="mt-4 text-3xl font-extrabold text-slate-900">124</p>
+        </article>
+
+        <!-- Card 2: En attente -->
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs hover:shadow-md transition">
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-medium text-slate-500">En attente</p>
+            <span class="h-8 w-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-xs font-bold">⏳</span>
+          </div>
+          <p class="mt-4 text-3xl font-extrabold text-amber-600">28</p>
+        </article>
+
+        <!-- Card 3: Validées -->
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs hover:shadow-md transition">
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-medium text-slate-500">Validées</p>
+            <span class="h-8 w-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-bold">✅</span>
+          </div>
+          <p class="mt-4 text-3xl font-extrabold text-emerald-600">72</p>
+        </article>
+
+        <!-- Card 4: Payées -->
+        <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs hover:shadow-md transition">
+          <div class="flex items-center justify-between">
+            <p class="text-sm font-medium text-slate-500">Payées</p>
+            <span class="h-8 w-8 rounded-lg bg-cyan-50 text-cyan-600 flex items-center justify-center text-xs font-bold">💳</span>
+          </div>
+          <p class="mt-4 text-3xl font-extrabold text-cyan-600">24</p>
+        </article>
+
+      </section>
+
+      <!-- Data Table Section -->
+      <section class="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs">
+        <div class="flex items-center justify-between mb-6">
+          <h3 class="text-lg font-bold text-slate-900">Dernières inscriptions</h3>
+          <button class="text-sm font-semibold text-cyan-600 hover:text-cyan-700 transition">Voir tout →</button>
         </div>
 
-        <!--profil -->
-        <div class="flex items-center gap-3">
-          <div class="h-12 w-12 rounded-full bg-blue-500 flex items-center justify-center">
-            <!-- Icône -->
-          </div>
-          <div class=" font-semibold">
-            <p>Khadija</p>
-            <p>Secrétaire</p>
-          </div>
-          <span>⌄</span>
-        </div>
-      </header>
-        <!-- static -->
-      <section>
-        <div class="p-3 bg-gray-100">
-          <h2 class="font-bold text-[25px]">Tableau de bord</h2>
-          <p class="font-normal text-[12px] text-gray-500">Vue d'ensemble de votre center</p>
+        <div class="overflow-x-auto">
+          <table class="w-full min-w-[800px] text-left text-sm">
+            <thead class="bg-slate-50 text-slate-500 uppercase tracking-wider text-xs font-semibold">
+              <tr>
+                <th class="p-3.5 rounded-l-xl">N° dossier</th>
+                <th class="p-3.5">Élève</th>
+                <th class="p-3.5">Niveau</th>
+                <th class="p-3.5">Cours</th>
+                <th class="p-3.5">Statut</th>
+                <th class="p-3.5 rounded-r-xl">Date</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              <tr class="hover:bg-slate-50/50 transition">
+                <td class="p-3.5 font-semibold text-slate-900">NA-001</td>
+                <td class="p-3.5 font-medium text-slate-800">Yassine Amrani</td>
+                <td class="p-3.5 text-slate-600">Collège</td>
+                <td class="p-3.5 text-slate-600">Math</td>
+                <td class="p-3.5">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200/50">
+                    Validée
+                  </span>
+                </td>
+                <td class="p-3.5 text-slate-500">26/10/2026</td>
+              </tr>
+
+              <tr class="hover:bg-slate-50/50 transition">
+                <td class="p-3.5 font-semibold text-slate-900">NA-002</td>
+                <td class="p-3.5 font-medium text-slate-800">Salma Benali</td>
+                <td class="p-3.5 text-slate-600">Primaire</td>
+                <td class="p-3.5 text-slate-600">Français</td>
+                <td class="p-3.5">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-700 border border-amber-200/50">
+                    En attente
+                  </span>
+                </td>
+                <td class="p-3.5 text-slate-500">25/10/2026</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
-      <section class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <article class="rounded-lx border border-blue-100 p-5 shadow-sm bg-gray-100">
-          <p class="text-sm text-slate-500">Total des inscrits</p>
-          <p class="mt-3 text-3xl font-bold">124</p>
-        </article>
-        <article class="rounded-lx border border-blue-100  p-5 shadow-sm bg-red-100">
-          <p class="text-sm text-slate-500">En attente</p>
-          <p class="mt-3 text-3xl font-bold">28</p>
-        </article>
-        <article class="rounded-lx border border-blue-100 bg-amber-100 p-5 shadow-sm ">
-          <p class="text-sm text-slate-500">Validées</p>
-          <p class="mt-3 text-3xl font-bold">72</p>
-        </article>
-        <article class="rounded-lx border border-blue-100 bg-green-100 p-5 shadow-sm">
-          <p class="text-sm text-slate-500">Payées</p>
-          <p class="mt-3 text-3xl font-bold">24</p>
-        </article>
-
-
-      </section>
-
-       <!-- tableux -->
-        <section class="mt-6 rounded-lx border border-slate-200 bg-white p-5 shadow-sm">
-          <h2 class="mb-4 text-lg font-bold">Derniers inscriptions</h2>
-          <div class="overflow-x-auto ">
-            <table class="w-full min-w-[850px] text-left text-sm ">
-              <thead class="bg-gray-100 text-slate-500 ">
-                <tr>
-                  <th class="p-3">N° dossier</th>
-                  <th class="p-3">Eleves</th>
-                  <th class="p-3">Niveau</th>
-                  <th class="p-3">Cours</th>
-                  <th class="p-3">Statut</th>
-                  <th class="p-3">Date</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-gray-200">
-                <tr>
-                  <td class="p-3">NA-001</td>
-                  <td class="p-3">Yassine Amrani</td>
-                  <td class="p-3">College</td>
-                  <td class="p-3">Math</td>
-                  <td class="p-3">
-                    <span class="rounded-full bg-emerald-100 px-3 py-1 text-emerald-700">
-                      Validee
-                    </span>
-                  </td>
-                  <td class="p-3">26/10/2026</td>
-                </tr>
-
-                <tr>
-                  <td class="p-3">NA-002</td>
-                  <td class="p-3">Salma Benali</td>
-                  <td class="p-3">Primaire</td>
-                  <td class="p-3">Francais</td>
-                  <td class="p-3">
-                    <span class="rounded-full bg-amber-100 px-3 py-1 text-amber-700">
-                      En attente
-                    </span>
-                  </td>
-                  <td class="p-3">25/10/2026</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-        </section>
 
     </main>
 
   </div>
-<script src="../src/login.js"></script>
+
+  <script src="../src/login.js"></script>
 </body>
 
 </html>

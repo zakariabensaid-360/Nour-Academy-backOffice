@@ -5,49 +5,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Dashboard - Nour Academy</title>
+    <title>Connexion - Nour Academy</title>
 </head>
 
-<body class="min-h-screen bg-white m-0 p-0">
-    <main class="min-h-screen flex items-center justify-center p-4">
-        <section class="w-full max-w-md bg-white p-8 md:p-12 rounded-2xl shadow-2xl">
+<body class="min-h-screen bg-slate-50 m-0 p-0 antialiased flex items-center justify-center">
+    <main class="w-full p-4">
+        <section class="w-full max-w-md bg-white p-8 md:p-12 rounded-3xl shadow-xl border border-slate-100 mx-auto">
+            
             <!-- Logo et titre -->
-            <div class=" mb-3">
-                <img src="logo.webp" alt="Nour Academy" class="w-40 h-auto mx-auto">
+            <div class="mb-3">
+                <img src="../public/logo.svg" alt="Nour Academy" class="w-36 h-auto mx-auto object-contain">
             </div>
-            <div class="text-center mb-10">
-                <p class="text-slate-500 mt-2">
+            
+            <div class="text-center mb-8">
+                <p class="text-slate-400 text-sm font-medium">
                     Apprendre aujourd'hui, réussir demain
                 </p>
             </div>
 
             <div class="text-center mb-8">
-                <h2 class="text-2xl font-bold text-blue-950">
+                <h2 class="text-2xl font-black text-blue-950 tracking-tight">
                     Connexion à votre espace
                 </h2>
-                <p class="text-slate-500 mt-2">
+                <p class="text-slate-500 text-sm mt-1">
                     Veuillez vous connecter pour accéder à votre compte.
                 </p>
             </div>
+
             <!-- Formulaire de connexion -->
-            <form id="login" class="flex flex-col gap-6">
-                <div class="flex flex-col gap-2">
-                    <label for="login" class="font-semibold text-blue-950">Identifiant</label>
-                    <input type="text" name="login" id="email" placeholder="votre Identifiant"
-                        class="w-full border rounded-lg px-4 py-3">
+            <form id="login-form" class="flex flex-col gap-5">
+                <div class="flex flex-col gap-1.5">
+                    <label for="email" class="font-bold text-sm text-blue-950">Identifiant</label>
+                    <input 
+                        type="text" 
+                        name="login" 
+                        id="email" 
+                        placeholder="votre identifiant ou email"
+                        required
+                        class="w-full border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition"
+                    >
                 </div>
-                <div class="flex flex-col gap-2">
-                    <label for="password" class="font-semibold text-blue-950">Mot de passe</label>
-                    <input type="password" name="password" id="password" placeholder="Votre mode de passe"
-                        class="w-full border rounded-lg px-4 py-3">
+
+                <div class="flex flex-col gap-1.5">
+                    <label for="password" class="font-bold text-sm text-blue-950">Mot de passe</label>
+                    <input 
+                        type="password" 
+                        name="password" 
+                        id="password" 
+                        placeholder="••••••••"
+                        required
+                        class="w-full border border-slate-200 rounded-xl px-4 py-3 text-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent transition"
+                    >
                 </div>
-                <button type="submit" class="w-full gb-blue-900 text-while font-semibold py-3 rounded-lg cursor-pointer hover:bg-blue-800">
+
+                <button 
+                    type="submit" 
+                    class="w-full mt-2 bg-blue-900 text-white font-bold py-3.5 rounded-xl cursor-pointer hover:bg-blue-800 shadow-lg shadow-blue-900/20 transition duration-200"
+                >
                     Se connecter
                 </button>
-
-
             </form>
-
 
         </section>
     </main>
