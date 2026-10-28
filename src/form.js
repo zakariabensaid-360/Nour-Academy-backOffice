@@ -8,8 +8,8 @@ const conformError = document.getElementById("confirm-error")
 const passwordInput = document.getElementById("password");
 const confirmInput = document.getElementById("confirm");
 import { phoneValidation } from "../validation/phoneValidate.js";
-
-
+import { confirmValidation } from "../validation/confrimValidation.js";
+import { passwordValidation } from "../validation/passwordValidation.js";
 
 /* import CartItems from localeStorage */
 const items = JSON.parse(window.localStorage.getItem("CartItems"))
@@ -18,7 +18,7 @@ const students = JSON.parse(window.localStorage.getItem("students"))
 /*  validation */
 phoneValidation(phoneInput, telErr)
 passwordValidation(passwordInput, passwordError)
-confirmValidation(confirmInput, conformError)
+confirmValidation(confirmInput, conformError, passwordInput)
 
 /* getting the courses from the cart  &&  calculate the total */
 let TotalPriceElement = document.getElementById("total-price");

@@ -1,4 +1,4 @@
-function confirmValidation(confirmInput, conformError) {
+export function confirmValidation(confirmInput, conformError, passwordInput) {
   confirmInput.addEventListener("blur", () => {
     const password = passwordInput.value;
     const confirmPassword = confirmInput.value;

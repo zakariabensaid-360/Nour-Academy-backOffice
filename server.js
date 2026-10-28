@@ -20,6 +20,15 @@ app.get('/valid', (req, res) => {
 });
 
 
+app.get('/dashboard.html', (req, res) => {
+  res.sendFile(path.join(__dirname, './pages/dashboard.html'));
+
+});
+
+
+
+
+
 app.get('/login.html', (req, res) => {
   res.sendFile(path.join(__dirname, './pages/login.html'));
 });

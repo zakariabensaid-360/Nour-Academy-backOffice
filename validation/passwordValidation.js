@@ -1,4 +1,4 @@
-function passwordValidation(passwordInput, passwordError) {
+export function passwordValidation(passwordInput, passwordError) {
   passwordInput.addEventListener("blur", () => {
     const password = passwordInput.value;
     if (password.length < 10) {
