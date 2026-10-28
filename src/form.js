@@ -50,7 +50,7 @@ submitButton.addEventListener("click", (event) => {
 
 
   const data = {
-    id: "NA-" + String(Date.now()),
+    id: "NA-" + String(crypto.randomUUID().split("-")[0]),
     prenom: prenomVal,
     nom: nomVal,
     date: dobVal,
