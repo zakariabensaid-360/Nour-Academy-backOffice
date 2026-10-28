@@ -1,7 +1,6 @@
 
 
-
-function phoneValidation(phoneInput, telErr) {
+ export  function phoneValidation(phoneInput, telErr) {
     phoneInput.addEventListener("blur", function () {
   const phonePattern = /^\+?[0-9]{8,15}$/;
   if (phonePattern.test(this.value)) {

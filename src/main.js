@@ -132,7 +132,7 @@ let CartNum = document.getElementById("CartNum")
 
 // courses
 if (window.localStorage.getItem("courses") == undefined) {
-  window.localStorage.setItem("courses", JSON.stringify(data));
+  window.localStorage.setItem("courses", JSON.stringify(courses));
 }
 
 // students
@@ -153,7 +153,7 @@ if(window.localStorage.getItem("admin") == undefined) {
 
 
 let cartitems = JSON.parse(window.localStorage.getItem("CartItems"))
-let db = data
+let db = courses
 
 
 
@@ -289,7 +289,7 @@ const rerender = (itemsToRender) => {
     });
 };
 
-rerender(db);
+rerender(courses);
 
 
 
@@ -303,7 +303,7 @@ const applyFilters = () => {
     let selectedLevel = levelSelect.value;
     let selectedLocation = locationSelect.value;
     let inp = search.value
-    let filtered = db.filter((item) => {
+    let filtered = courses.filter((item) => {
         let matchesSubject = selectedSubject === "" || item.subject === selectedSubject;
         let matchesLevel = selectedLevel === "" || item.level === selectedLevel;
         let matchesLocation = selectedLocation === "" || item.location === selectedLocation;

@@ -7,6 +7,9 @@ const passwordError = document.getElementById("password-error");
 const conformError = document.getElementById("confirm-error")
 const passwordInput = document.getElementById("password");
 const confirmInput = document.getElementById("confirm");
+import { phoneValidation } from "../validation/phoneValidate.js";
+
+
 
 /* import CartItems from localeStorage */
 const items = JSON.parse(window.localStorage.getItem("CartItems"))
@@ -17,19 +20,12 @@ phoneValidation(phoneInput, telErr)
 passwordValidation(passwordInput, passwordError)
 confirmValidation(confirmInput, conformError)
 
-
-
 /* getting the courses from the cart  &&  calculate the total */
 let TotalPriceElement = document.getElementById("total-price");
 let CartSection = document.getElementById("section-cart");
 
-
 /* displaying items from localestorage to html */
 DisplayCartItems(CartSection, TotalPriceElement, items)
-
-
-
-
 
 /* action final */ 
 submitButton.addEventListener("click", (event) => {
@@ -65,8 +61,8 @@ submitButton.addEventListener("click", (event) => {
     parentNom: parentNomVal,
     parentLien: parentLienVal,
     parentEmail: parentEmailVal,
-    phone: phoneInput.value
-
+    phone: phoneInput.value,
+    status: "En Attend"
   }
 
   /* CREATE STUDENT */ 
@@ -74,15 +70,3 @@ students.push(data)
 window.localStorage.setItem("students", JSON.stringify(data))
 counter++
 });
-
-
-
-
-
-
-
-
-
-
-
-

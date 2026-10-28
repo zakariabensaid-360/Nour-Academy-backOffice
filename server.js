@@ -10,7 +10,7 @@ app.get('/about.html', (req, res) => {
   res.sendFile(path.join(__dirname, './pages/about.html'));
 });
 
-app.get('/process.html', (req, res) => {
+app.get('/form.html', (req, res) => {
   res.sendFile(path.join(__dirname, './pages/form.html'));
 
 });
