@@ -1,8 +1,8 @@
 
 
- export  function phoneValidation(phoneInput, telErr) {
+ export  function phoneValidation(phoneInput, telErr, subbtn) {
     phoneInput.addEventListener("blur", function () {
-  const phonePattern = /^\+?[0-9]{8,15}$/;
+  const phonePattern = /^(\+|\d{2})\d{1,4}[-. ]?\d{1,4}[-. ]?\d{1,4}[-. ]?\d{1,4}$/;
   if (phonePattern.test(this.value)) {
     this.style.borderColor = "green";
     subbtn.disabled = false;
