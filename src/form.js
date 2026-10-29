@@ -51,10 +51,18 @@ submitButton.addEventListener("click", (event) => {
   const parentEmailVal = document.getElementById("parent_email").value;
 
 if(duplicateValidation(phoneInput.value)) {
- 
+ console.log("test")
   alert("this phone number already exiss")
   return;
 }
+
+let CourseID = []
+
+for (let i = 0; i < items.length; i++) {
+  CourseID.push(items[i].id)
+  
+}
+console.log(TotalPriceElement.textContent)
   const data = {
     id: "NA-" + String(crypto.randomUUID().split("-")[0]).toLocaleUpperCase(),
     prenom: prenomVal,
@@ -68,6 +76,8 @@ if(duplicateValidation(phoneInput.value)) {
     parentLien: parentLienVal,
     parentEmail: parentEmailVal,
     phone: phoneInput.value,
+    CourseID: CourseID,
+    totalPrice: Number(TotalPriceElement.textContent.split(" ")[0]),
     status: "En attente"
   }
 
