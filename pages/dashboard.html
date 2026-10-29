@@ -11,9 +11,12 @@
 <body class="min-h-screen text-slate-800 m-0 p-0 antialiased flex">
 
   <!-- Sidebar -->
-  <aside class="w-64 shrink-0 bg-slate-900 text-slate-300 flex flex-col border-r border-slate-800 shadow-xl min-h-screen">
+  <aside
+    class="w-64 shrink-0 bg-slate-900 text-slate-300 flex flex-col border-r border-slate-800 shadow-xl min-h-screen">
     <div class="p-6 border-b border-slate-800 flex items-center gap-3">
-      <div class="h-10 w-10 rounded-xl bg-cyan-500 flex items-center justify-center text-white font-black text-lg shadow-lg shadow-cyan-500/30">N</div>
+      <div
+        class="h-10 w-10 rounded-xl bg-cyan-500 flex items-center justify-center text-white font-black text-lg shadow-lg shadow-cyan-500/30">
+        N</div>
       <div>
         <h1 class="font-bold text-white tracking-wide">Nour Academy</h1>
         <p class="text-xs text-slate-400">Espace Secrétariat</p>
@@ -21,13 +24,16 @@
     </div>
 
     <nav class="flex-1 p-4 space-y-2 font-medium">
-      <a href="#dashboard" class="flex items-center gap-3 px-4 py-3 rounded-xl bg-cyan-600 text-white shadow-lg shadow-cyan-600/20 transition">
+      <a href="#dashboard"
+        class="flex items-center gap-3 px-4 py-3 rounded-xl bg-cyan-600 text-white shadow-lg shadow-cyan-600/20 transition">
         Tableau de bord
       </a>
-      <a href="#inscriptions" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 hover:text-white transition">
+      <a href="#inscriptions"
+        class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 hover:text-white transition">
         Inscriptions
       </a>
-      <a href="#ajouter-inscription" class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 hover:text-white transition">
+      <a href="#ajouter-inscription"
+        class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 hover:text-white transition">
         Ajouter inscription
       </a>
     </nav>
@@ -35,12 +41,14 @@
 
   <!-- Main Content Wrapper -->
   <div class="flex-1 flex flex-col min-w-0">
-    
+
     <!-- Header / Navbar -->
-    <header class="bg-white border-b border-slate-200 px-8 py-4 flex items-center justify-between shadow-xs sticky top-0 z-10">
+    <header
+      class="bg-white border-b border-slate-200 px-8 py-4 flex items-center justify-between shadow-xs sticky top-0 z-10">
       <div class="flex items-center gap-3">
         <span class="text-xs uppercase tracking-wider font-bold text-slate-400">Centre :</span>
-        <select name="centre" id="centre" class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition">
+        <select name="centre" id="centre"
+          class="bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm font-semibold text-slate-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 transition">
           <option value="massira">Centre Al Massira</option>
           <option value="nador" selected>Nador Centre</option>
           <option value="selouane">Selouane</option>
@@ -49,7 +57,8 @@
 
       <!-- User Profile -->
       <div class="flex items-center gap-3 pl-4 border-l border-slate-200">
-        <div class="h-10 w-10 rounded-full bg-cyan-100 text-cyan-700 font-bold flex items-center justify-center shadow-inner">
+        <div
+          class="h-10 w-10 rounded-full bg-cyan-100 text-cyan-700 font-bold flex items-center justify-center shadow-inner">
           K
         </div>
         <div class="text-sm">
@@ -62,7 +71,7 @@
 
     <!-- Main Section -->
     <main class="flex-1 p-8 space-y-8 max-w-7xl w-full mx-auto">
-      
+
       <!-- Page Title -->
       <div class="flex flex-col gap-1">
         <h2 class="text-2xl font-black text-slate-900 tracking-tight">Tableau de bord</h2>
@@ -71,12 +80,18 @@
 
       <!-- Stats Grid -->
       <section class="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
-        
+
         <!-- Card 1: Total -->
         <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs hover:shadow-md transition">
           <div class="flex items-center justify-between">
             <p class="text-sm font-medium text-slate-500">Total des inscrits</p>
-            <span class="h-8 w-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xs font-bold"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M320 80C377.4 80 424 126.6 424 184C424 241.4 377.4 288 320 288C262.6 288 216 241.4 216 184C216 126.6 262.6 80 320 80zM96 152C135.8 152 168 184.2 168 224C168 263.8 135.8 296 96 296C56.2 296 24 263.8 24 224C24 184.2 56.2 152 96 152zM0 480C0 409.3 57.3 352 128 352C140.8 352 153.2 353.9 164.9 357.4C132 394.2 112 442.8 112 496L112 512C112 523.4 114.4 534.2 118.7 544L32 544C14.3 544 0 529.7 0 512L0 480zM521.3 544C525.6 534.2 528 523.4 528 512L528 496C528 442.8 508 394.2 475.1 357.4C486.8 353.9 499.2 352 512 352C582.7 352 640 409.3 640 480L640 512C640 529.7 625.7 544 608 544L521.3 544zM472 224C472 184.2 504.2 152 544 152C583.8 152 616 184.2 616 224C616 263.8 583.8 296 544 296C504.2 296 472 263.8 472 224zM160 496C160 407.6 231.6 336 320 336C408.4 336 480 407.6 480 496L480 512C480 529.7 465.7 544 448 544L192 544C174.3 544 160 529.7 160 512L160 496z"/></svg></span>
+            <span
+              class="h-8 w-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center text-xs font-bold">
+              <svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                <path
+                  d="M320 80C377.4 80 424 126.6 424 184C424 241.4 377.4 288 320 288C262.6 288 216 241.4 216 184C216 126.6 262.6 80 320 80zM96 152C135.8 152 168 184.2 168 224C168 263.8 135.8 296 96 296C56.2 296 24 263.8 24 224C24 184.2 56.2 152 96 152zM0 480C0 409.3 57.3 352 128 352C140.8 352 153.2 353.9 164.9 357.4C132 394.2 112 442.8 112 496L112 512C112 523.4 114.4 534.2 118.7 544L32 544C14.3 544 0 529.7 0 512L0 480zM521.3 544C525.6 534.2 528 523.4 528 512L528 496C528 442.8 508 394.2 475.1 357.4C486.8 353.9 499.2 352 512 352C582.7 352 640 409.3 640 480L640 512C640 529.7 625.7 544 608 544L521.3 544zM472 224C472 184.2 504.2 152 544 152C583.8 152 616 184.2 616 224C616 263.8 583.8 296 544 296C504.2 296 472 263.8 472 224zM160 496C160 407.6 231.6 336 320 336C408.4 336 480 407.6 480 496L480 512C480 529.7 465.7 544 448 544L192 544C174.3 544 160 529.7 160 512L160 496z" />
+              </svg></span>
           </div>
           <p class="mt-4 text-3xl font-extrabold text-slate-900">124</p>
         </article>
@@ -85,7 +100,13 @@
         <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs hover:shadow-md transition">
           <div class="flex items-center justify-between">
             <p class="text-sm font-medium text-slate-500">En attente</p>
-            <span class="h-8 w-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-xs font-bold"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M160 64C142.3 64 128 78.3 128 96C128 113.7 142.3 128 160 128L160 139C160 181.4 176.9 222.1 206.9 252.1L274.8 320L206.9 387.9C176.9 417.9 160 458.6 160 501L160 512C142.3 512 128 526.3 128 544C128 561.7 142.3 576 160 576L480 576C497.7 576 512 561.7 512 544C512 526.3 497.7 512 480 512L480 501C480 458.6 463.1 417.9 433.1 387.9L365.2 320L433.1 252.1C463.1 222.1 480 181.4 480 139L480 128C497.7 128 512 113.7 512 96C512 78.3 497.7 64 480 64L160 64zM416 501L416 512L224 512L224 501C224 475.5 234.1 451.1 252.1 433.1L320 365.2L387.9 433.1C405.9 451.1 416 475.5 416 501z"/></svg></span>
+            <span
+              class="h-8 w-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-xs font-bold"><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                <path
+                  d="M160 64C142.3 64 128 78.3 128 96C128 113.7 142.3 128 160 128L160 139C160 181.4 176.9 222.1 206.9 252.1L274.8 320L206.9 387.9C176.9 417.9 160 458.6 160 501L160 512C142.3 512 128 526.3 128 544C128 561.7 142.3 576 160 576L480 576C497.7 576 512 561.7 512 544C512 526.3 497.7 512 480 512L480 501C480 458.6 463.1 417.9 433.1 387.9L365.2 320L433.1 252.1C463.1 222.1 480 181.4 480 139L480 128C497.7 128 512 113.7 512 96C512 78.3 497.7 64 480 64L160 64zM416 501L416 512L224 512L224 501C224 475.5 234.1 451.1 252.1 433.1L320 365.2L387.9 433.1C405.9 451.1 416 475.5 416 501z" />
+              </svg></span>
           </div>
           <p class="mt-4 text-3xl font-extrabold text-amber-600">28</p>
         </article>
@@ -94,7 +115,13 @@
         <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs hover:shadow-md transition">
           <div class="flex items-center justify-between">
             <p class="text-sm font-medium text-slate-500">Validées</p>
-            <span class="h-8 w-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-bold"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M530.8 134.1C545.1 144.5 548.3 164.5 537.9 178.8L281.9 530.8C276.4 538.4 267.9 543.1 258.5 543.9C249.1 544.7 240 541.2 233.4 534.6L105.4 406.6C92.9 394.1 92.9 373.8 105.4 361.3C117.9 348.8 138.2 348.8 150.7 361.3L252.2 462.8L486.2 141.1C496.6 126.8 516.6 123.6 530.9 134z"/></svg></span>
+            <span
+              class="h-8 w-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-xs font-bold"><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                <path
+                  d="M530.8 134.1C545.1 144.5 548.3 164.5 537.9 178.8L281.9 530.8C276.4 538.4 267.9 543.1 258.5 543.9C249.1 544.7 240 541.2 233.4 534.6L105.4 406.6C92.9 394.1 92.9 373.8 105.4 361.3C117.9 348.8 138.2 348.8 150.7 361.3L252.2 462.8L486.2 141.1C496.6 126.8 516.6 123.6 530.9 134z" />
+              </svg></span>
           </div>
           <p class="mt-4 text-3xl font-extrabold text-emerald-600">72</p>
         </article>
@@ -103,11 +130,32 @@
         <article class="rounded-2xl border border-slate-200 bg-white p-6 shadow-xs hover:shadow-md transition">
           <div class="flex items-center justify-between">
             <p class="text-sm font-medium text-slate-500">Payées</p>
-            <span class="h-8 w-8 rounded-lg bg-cyan-50 text-cyan-600 flex items-center justify-center text-xs font-bold"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M64 192L64 224L576 224L576 192C576 156.7 547.3 128 512 128L128 128C92.7 128 64 156.7 64 192zM64 272L64 448C64 483.3 92.7 512 128 512L512 512C547.3 512 576 483.3 576 448L576 272L64 272zM128 424C128 410.7 138.7 400 152 400L200 400C213.3 400 224 410.7 224 424C224 437.3 213.3 448 200 448L152 448C138.7 448 128 437.3 128 424zM272 424C272 410.7 282.7 400 296 400L360 400C373.3 400 384 410.7 384 424C384 437.3 373.3 448 360 448L296 448C282.7 448 272 437.3 272 424z"/></svg></span>
+            <span
+              class="h-8 w-8 rounded-lg bg-cyan-50 text-cyan-600 flex items-center justify-center text-xs font-bold"><svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+                <path
+                  d="M64 192L64 224L576 224L576 192C576 156.7 547.3 128 512 128L128 128C92.7 128 64 156.7 64 192zM64 272L64 448C64 483.3 92.7 512 128 512L512 512C547.3 512 576 483.3 576 448L576 272L64 272zM128 424C128 410.7 138.7 400 152 400L200 400C213.3 400 224 410.7 224 424C224 437.3 213.3 448 200 448L152 448C138.7 448 128 437.3 128 424zM272 424C272 410.7 282.7 400 296 400L360 400C373.3 400 384 410.7 384 424C384 437.3 373.3 448 360 448L296 448C282.7 448 272 437.3 272 424z" />
+              </svg></span>
           </div>
           <p class="mt-4 text-3xl font-extrabold text-cyan-600">24</p>
         </article>
 
+      </section>
+
+      <!--filtrage-->
+      <section>
+        <div class="flex flex-col gap-3 mb-3 sm:flex-row">
+          <select id="filiereNiveau" class="border border-slate-200 rounded-lg p-3 bg-white">
+            <option value="">All Levels</option>
+            <option value="1ère Bac">1ère Bac</option>
+            <option value="2ème Bac">2ème Bac</option>
+            <option value="Primaire">Primaire</option>
+            <option value="Collège">Collège</option>
+          </select>
+
+          <input type="text" id="filiereTelephone" placeholder="Rechercher par telephone" class="border border-slate-200 rounded-lg p-3 flex-1">
+        </div>
       </section>
 
       <!-- Data Table Section -->
@@ -138,9 +186,11 @@
                 <td class="p-3.5 text-slate-600">Collège</td>
                 <td class="p-3.5 text-slate-600">Math</td>
 
-                <td class="p-3.5 text-slate-500">26/10/2026</td> 
-                 <td class="p-3.5 text-slate-600">something</td>               <td class="p-3.5">
-                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200/50">
+                <td class="p-3.5 text-slate-500">26/10/2026</td>
+                <td class="p-3.5 text-slate-600">something</td>
+                <td class="p-3.5">
+                  <span
+                    class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200/50">
                     Validée
                   </span>
                 </td>
@@ -152,21 +202,23 @@
                 <td class="p-3.5 text-slate-600">Primaire</td>
                 <td class="p-3.5 text-slate-600">Français</td>
                 <td class="p-3.5">
-                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-700 border border-amber-200/50">
+                  <span
+                    class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-amber-50 text-amber-700 border border-amber-200/50">
                     En attente
                   </span>
                 </td>
                 <td class="p-3.5 text-slate-500">25/10/2026</td>
               </tr>
 
-                        <tr class="hover:bg-slate-50/50 transition">
+              <tr class="hover:bg-slate-50/50 transition">
                 <td class="p-3.5 font-semibold text-slate-900">NA-002</td>
                 <td class="p-3.5 font-medium text-slate-800">Salma Benali</td>
                 <td class="p-3.5 text-slate-600">Primaire</td>
                 <td class="p-3.5 text-slate-600">Français</td>
-                 <td class="p-3.5 text-slate-600">0648</td>
+                <td class="p-3.5 text-slate-600">0648</td>
                 <td class="p-3.5">
-                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-blue-50 text-blue-700 border border-blue-200/50">
+                  <span
+                    class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-bold bg-blue-50 text-blue-700 border border-blue-200/50">
                     payee
                   </span>
                 </td>
@@ -181,7 +233,7 @@
     </main>
 
   </div>
-  <script  src="../src/dashboard.js"></script>
+  <script src="../src/dashboard.js"></script>
 </body>
 
 </html>

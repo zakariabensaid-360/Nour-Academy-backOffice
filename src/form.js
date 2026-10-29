@@ -38,7 +38,7 @@ submitButton.addEventListener("click", (event) => {
     return;
   }
   event.preventDefault();
- const students = JSON.parse(window.localStorage.getItem("students"))
+  const students = JSON.parse(window.localStorage.getItem("students"))
   const prenomVal = document.getElementById("prenom").value;
   const nomVal = document.getElementById("nom").value;
   const dobVal = document.getElementById("dob").value;
