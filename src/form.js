@@ -11,10 +11,12 @@ import { DisplayCartItems } from "../components/DisplayCartItems.js";
 import { phoneValidation } from "../validation/phoneValidate.js";
 import { confirmValidation } from "../validation/confrimValidation.js";
 import { passwordValidation } from "../validation/passwordValidation.js";
+import { duplicateValidation } from "../validation/duplicateValidation.js";
+
 
 /* import CartItems from localeStorage */
 const items = JSON.parse(window.localStorage.getItem("CartItems"))
-const students = JSON.parse(window.localStorage.getItem("students"))
+
 
 /*  validation */
 phoneValidation(phoneInput, telErr, submitButton)
@@ -36,7 +38,7 @@ submitButton.addEventListener("click", (event) => {
     return;
   }
   event.preventDefault();
-
+ const students = JSON.parse(window.localStorage.getItem("students"))
   const prenomVal = document.getElementById("prenom").value;
   const nomVal = document.getElementById("nom").value;
   const dobVal = document.getElementById("dob").value;
@@ -48,9 +50,13 @@ submitButton.addEventListener("click", (event) => {
   const parentLienVal = document.getElementById("parent_lien").value;
   const parentEmailVal = document.getElementById("parent_email").value;
 
-
+if(duplicateValidation(phoneInput.value)) {
+ 
+  alert("this phone number already exiss")
+  return;
+}
   const data = {
-    id: "NA-" + String(crypto.randomUUID().split("-")[0]),
+    id: "NA-" + String(crypto.randomUUID().split("-")[0]).toLocaleUpperCase(),
     prenom: prenomVal,
     nom: nomVal,
     date: dobVal,
@@ -62,7 +68,7 @@ submitButton.addEventListener("click", (event) => {
     parentLien: parentLienVal,
     parentEmail: parentEmailVal,
     phone: phoneInput.value,
-    status: "En Attend"
+    status: "En attente"
   }
 
   /* CREATE STUDENT */ 
