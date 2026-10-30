@@ -1,3 +1,6 @@
+
+
+
 let courses = [
   {
     id: "c1",
@@ -7,7 +10,7 @@ let courses = [
     slot: "Samedi 09:00 - 11:00",
     location: "Nador Centre",
     price: 350,
-    remainingSeats: 6,
+    remainingSeats: 15,
   },
   {
     id: "c2",
@@ -17,7 +20,7 @@ let courses = [
     slot: "Samedi 11:15 - 13:15",
     location: "Hay Al Matar",
     price: 300,
-    remainingSeats: 4,
+    remainingSeats: 15,
   },
   {
     id: "c3",
@@ -27,7 +30,7 @@ let courses = [
     slot: "Mercredi 15:00 - 17:00",
     location: "Nador Centre",
     price: 400,
-    remainingSeats: 8,
+    remainingSeats: 15,
   },
   {
     id: "c4",
@@ -37,7 +40,7 @@ let courses = [
     slot: "Samedi 15:00 - 17:00",
     location: "Selouane",
     price: 400,
-    remainingSeats: 0,
+    remainingSeats: 15,
   },
   {
     id: "c5",
@@ -47,7 +50,7 @@ let courses = [
     slot: "Dimanche 10:00 - 12:00",
     location: "Hay Al Matar",
     price: 380,
-    remainingSeats: 3,
+    remainingSeats: 15,
   },
   {
     id: "c6",
@@ -57,7 +60,7 @@ let courses = [
     slot: "Dimanche 09:00 - 11:00",
     location: "Nador Centre",
     price: 450,
-    remainingSeats: 5,
+    remainingSeats: 15,
   },
   {
     id: "c7",
@@ -67,7 +70,7 @@ let courses = [
     slot: "Samedi 17:00 - 19:00",
     location: "Selouane",
     price: 450,
-    remainingSeats: 2,
+    remainingSeats: 15,
   },
   {
     id: "c8",
@@ -77,7 +80,7 @@ let courses = [
     slot: "Samedi 14:00 - 16:30",
     location: "Nador Centre",
     price: 550,
-    remainingSeats: 7,
+    remainingSeats: 15,
   },
   {
     id: "c9",
@@ -87,7 +90,7 @@ let courses = [
     slot: "Dimanche 11:15 - 13:45",
     location: "Hay Al Matar",
     price: 550,
-    remainingSeats: 0,
+    remainingSeats: 15,
   },
   {
     id: "c10",
@@ -97,7 +100,7 @@ let courses = [
     slot: "Mercredi 17:00 - 19:00",
     location: "Nador Centre",
     price: 500,
-    remainingSeats: 9,
+    remainingSeats: 15,
   },
   {
     id: "c11",
@@ -107,7 +110,7 @@ let courses = [
     slot: "Dimanche 15:00 - 17:00",
     location: "Selouane",
     price: 400,
-    remainingSeats: 12,
+    remainingSeats: 15,
   },
   {
     id: "c12",
@@ -117,7 +120,7 @@ let courses = [
     slot: "Samedi 11:00 - 13:00",
     location: "Hay Al Matar",
     price: 350,
-    remainingSeats: 1,
+    remainingSeats: 15,
   },
 ];
 
