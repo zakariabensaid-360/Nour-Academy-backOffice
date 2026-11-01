@@ -81,9 +81,31 @@ console.log(TotalPriceElement.textContent)
     status: "En attente"
   }
 
+
+  let courses = JSON.parse(window.localStorage.getItem("courses"));
+  let allID = [];
+
+  for (let i = 0; i < students.length; i++) {
+    for (let j = 0; j < students[i].CourseID.length; j++) {
+      allID.push(students[i].CourseID[j]);
+    }
+  }
+
+
+  for(let i = 0; i < courses.length; i++) {
+    for(let j = 0; j < allID.length; j++) {
+      if(courses[i].id == allID[j]) {
+        courses[i].remainingSeats -= 1
+      }
+    }
+  }
+
+  window.localStorage.setItem("courses", JSON.stringify(courses))
+
   /* CREATE STUDENT */ 
 
 students.push(data)
 window.localStorage.setItem("students", JSON.stringify(students))
+alert("your forb has been submited  !");
 
 });

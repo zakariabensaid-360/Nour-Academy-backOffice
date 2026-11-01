@@ -9,7 +9,6 @@
   </head>
   <body class="min-h-screen flex flex-col justify-between text-slate-800 antialiased">
     
-    <!-- Header -->
     <header class="flex justify-between items-center px-8 py-4 bg-white border-b border-cyan-100 shadow-xs sticky top-0 z-50">
       <div class="flex items-center gap-4">
         <img width="48" height="48" src="./public/logo.svg" alt="Nour Academy Logo" class="object-contain" />
@@ -19,14 +18,12 @@
         </div>
       </div>
 
-      <!-- Navigation Links -->
       <nav class="hidden md:flex items-center gap-8 text-sm font-bold text-slate-600">
         <a href="#" class="hover:text-cyan-700 transition">Home</a>
         <a href="#" class="hover:text-cyan-700 transition">About</a>
         <a href="#" class="hover:text-cyan-700 transition">Contact</a>
       </nav>
 
-      <!-- Cart Badge Wrapper -->
       <div id="cart" class="bg-cyan-50 border border-cyan-200 rounded-2xl p-2.5 relative cursor-pointer flex items-center gap-3 shadow-xs hover:bg-cyan-100 transition">
         <svg
           class="w-6 h-6 text-cyan-700"
@@ -53,19 +50,15 @@
       </div>
     </header>
 
-    <!-- Main Content -->
     <main class="flex-1 max-w-7xl w-full mx-auto px-4 py-10 flex flex-col gap-8">
       
-      <!-- Page Title & Subtitle -->
       <div class="text-center space-y-2">
         <h2 class="text-3xl md:text-4xl font-black text-slate-900 tracking-tight">Our Courses</h2>
         <p class="text-slate-500 text-sm max-w-md mx-auto">Découvrez notre sélection de cours d'excellence adaptés à tous les niveaux scolaires.</p>
       </div>
 
-      <!-- Search & Filters Toolbar -->
       <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex flex-col gap-6">
         
-        <!-- Search Bar -->
         <div class="w-full">
           <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-2" for="search">Rechercher un cours</label>
           <div class="relative">
@@ -80,7 +73,6 @@
           </div>
         </div>
 
-        <!-- Filter Dropdowns Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <div>
             <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">Niveau</label>
@@ -131,7 +123,6 @@
 
       </div>
 
-      <!-- Course Cards Container (Dynamically rendered by main.js) -->
       <section
         id="cards"
         class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
@@ -139,7 +130,6 @@
       
     </main>
 
-    <!-- Footer -->
     <footer class="bg-cyan-800 text-white text-center font-bold p-5 text-sm">
       © Nour Academy - 2026
     </footer>
