@@ -1,4 +1,4 @@
-const page = document.getElementById("page")
+const page = document.getElementById("page");
 
 function Board() {
   page.innerHTML = `
@@ -159,12 +159,16 @@ function Board() {
     TotalValid.textContent = statusCount[1];
     TotalPays.textContent = statusCount[2];
     TotalMoney.textContent = String(statusCount[3]) + " / MAD";
-    
+
     info.innerHTML = "";
-    
+
     for (let i = 0; i < students.length; i++) {
       let student = students[i];
-      if (filiereTelephone.value && !student.phone.startsWith(filiereTelephone.value)) continue;
+      if (
+        filiereTelephone.value &&
+        !student.phone.startsWith(filiereTelephone.value)
+      )
+        continue;
 
       info.innerHTML += `
         <tr class="hover:bg-slate-50/50 transition">
@@ -190,10 +194,31 @@ function Board() {
     }
   }
 
-  window.Deleting = function(id) {
+  window.Deleting = function (id) {
     let students = JSON.parse(window.localStorage.getItem("students")) || [];
+    let courses = JSON.parse(window.localStorage.getItem("courses")) || [];
     let safeStudents = [];
 
+  let allID = [];
+
+  for (let i = 0; i < students.length; i++) {
+    if(students[i].id !== id) continue;
+    for (let j = 0; j < students[i].CourseID.length; j++) {
+      
+      allID.push(students[i].CourseID[j]);
+    }
+  }
+
+console.log(allID)
+  for(let i = 0; i < courses.length; i++) {
+    for(let j = 0; j < allID.length; j++) {
+      if(courses[i].id == allID[j]) {
+        courses[i].remainingSeats += 1
+      }
+    }
+  }
+
+  window.localStorage.setItem("courses", JSON.stringify(courses))
     for (let i = 0; i < students.length; i++) {
       if (students[i].id != id) {
         safeStudents.push(students[i]);
@@ -202,9 +227,9 @@ function Board() {
 
     window.localStorage.setItem("students", JSON.stringify(safeStudents));
     renderInfo();
-  }
+  };
 
-  window.Edit = function(id) {
+  window.Edit = function (id) {
     ModalBackground.classList.remove("hidden");
     ModalForm.classList.remove("hidden");
     ModalForm.innerHTML = `
@@ -231,7 +256,7 @@ function Board() {
     statuss.addEventListener("change", () => {
       let students = JSON.parse(window.localStorage.getItem("students")) || [];
       let UpdateStudents = [];
-      
+
       for (let i = 0; i < students.length; i++) {
         let student = students[i];
         if (student.id == id) {
@@ -249,7 +274,7 @@ function Board() {
       ModalForm.classList.add("hidden");
       ModalForm.innerHTML = "";
     });
-  }
+  };
 
   filiereTelephone.addEventListener("input", () => {
     renderInfo();
@@ -262,7 +287,7 @@ Board();
 
 const boardPage = document.getElementById("BoardPage");
 const formPage = document.getElementById("FormPage");
-const classPage = document.getElementById("ClassPage")
+const classPage = document.getElementById("ClassPage");
 
 boardPage.addEventListener("click", () => {
   Board();
@@ -496,7 +521,6 @@ formPage.addEventListener("click", () => {
                 </p>
               </div>
 
-              <!-- Submit Button and Price Section -->
               <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pt-6">
                 <button
                   id="sub"
@@ -505,7 +529,7 @@ formPage.addEventListener("click", () => {
                 >
                   Soumettre la demande
                 </button>
-                <span id="total-price" class="font-bold text-cyan-700 text-lg text-center sm:text-right"></span>
+                <span id="total-price" class="font-bold text-cyan-700 text-lg text-center sm:text-right">0 MAD</span>
               </div>
 
             </div>
@@ -515,17 +539,223 @@ formPage.addEventListener("click", () => {
       </div>
     </main>
   `;
+
+  LogicForm();
 });
 
-classPage.addEventListener("click", ()=> {
-    let courses  = JSON.parse(window.localStorage.getItem("courses"))
-page.innerHTML = ""
+function confirmValidation(confirmInput, conformError, passwordInput) {
+  confirmInput.addEventListener("blur", () => {
+    const password = passwordInput.value;
+    const confirmPassword = confirmInput.value;
+    if (password !== confirmPassword) {
+      confirmInput.style.borderColor = "red";
+      conformError.textContent = "Passwords do not match.";
+    } else {
+      confirmInput.style.borderColor = "green";
+      conformError.textContent = "";
+    }
+  });
+}
+
+function passwordValidation(passwordInput, passwordError) {
+  passwordInput.addEventListener("blur", () => {
+    const password = passwordInput.value;
+    if (password.length < 10) {
+      passwordInput.style.borderColor = "red";
+      passwordError.textContent = "Password must be at least 10 characters long.";
+    } else {
+      passwordInput.style.borderColor = "green";
+      passwordError.textContent = "";
+    }
+  });
+}
+
+function duplicateValidation(phone) {
+  const students = JSON.parse(window.localStorage.getItem("students")) || [];
+  for (let i = 0; i < students.length; i++) {
+    if (students[i].phone == phone) return true;
+  }
+  return false;
+}
+
+function phoneValidation(phoneInput, telErr, subbtn) {
+  phoneInput.addEventListener("blur", function () {
+    const phonePattern = /^(\+|\d{2})\d{1,4}[-. ]?\d{1,4}[-. ]?\d{1,4}[-. ]?\d{1,4}$/;
+    if (phonePattern.test(this.value)) {
+      this.style.borderColor = "green";
+      subbtn.disabled = false;
+      telErr.textContent = "";
+    } else {
+      this.style.borderColor = "red";
+      telErr.textContent = "Please enter a valid phone number";
+      subbtn.disabled = true;
+    }
+  });
+}
+
+function LogicForm() {
+  const phoneInput = document.getElementById("phone");
+  const submitButton = document.getElementById("sub");
+  const form = document.getElementById("registration-form");
+  const telErr = document.getElementById("tel-error");
+  const passwordError = document.getElementById("password-error");
+  const conformError = document.getElementById("confirm-error");
+  const passwordInput = document.getElementById("password");
+  const confirmInput = document.getElementById("confirm");
+  const TotalPriceElement = document.getElementById("total-price");
+
+  const items = JSON.parse(window.localStorage.getItem("CartItems")) || [];
+
+  phoneValidation(phoneInput, telErr, submitButton);
+  passwordValidation(passwordInput, passwordError);
+  confirmValidation(confirmInput, conformError, passwordInput);
+
+  // Form submission action
+  submitButton.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    // Check if form is valid using HTML5 built-in validation
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const students = JSON.parse(window.localStorage.getItem("students")) || [];
+    
+    const prenomVal = document.getElementById("prenom").value;
+    const nomVal = document.getElementById("nom").value;
+    const dobVal = document.getElementById("dob").value;
+    const etablissementVal = document.getElementById("etablissement").value;
+    const niveauVal = document.getElementById("niveau").value;
+    const centreVal = document.getElementById("centre").value;
+    const filiereVal = document.getElementById("filiere").value;
+    const parentNomVal = document.getElementById("parent_nom").value;
+    const parentLienVal = document.getElementById("parent_lien").value;
+    const parentEmailVal = document.getElementById("parent_email").value;
+
+    if (duplicateValidation(phoneInput.value)) {
+      alert("This phone number already exists.");
+      return;
+    }
+
+    let CourseID = [];
+    for (let i = 0; i < items.length; i++) {
+      CourseID.push(items[i].id);
+    }
+
+    const parsedPrice = parseFloat(TotalPriceElement.textContent) || 0;
+
+    const data = {
+      id: "NA-" + String(crypto.randomUUID().split("-")[0]).toUpperCase(),
+      prenom: prenomVal,
+      nom: nomVal,
+      date: dobVal,
+      etablissement: etablissementVal,
+      niveau: niveauVal,
+      centre: centreVal,
+      filiere: filiereVal,
+      parentNom: parentNomVal,
+      parentLien: parentLienVal,
+      parentEmail: parentEmailVal,
+      phone: phoneInput.value,
+      CourseID: CourseID,
+      totalPrice: parsedPrice,
+      status: "En attente"
+    };
+
+    
+  let courses = JSON.parse(window.localStorage.getItem("courses"));
+  let allID = [];
+
+  for (let i = 0; i < students.length; i++) {
+    for (let j = 0; j < students[i].CourseID.length; j++) {
+      allID.push(students[i].CourseID[j]);
+    }
+  }
+
+
+  for(let i = 0; i < courses.length; i++) {
+    for(let j = 0; j < allID.length; j++) {
+      if(courses[i].id == allID[j]) {
+        courses[i].remainingSeats -= 1
+      }
+    }
+  }
+
+  window.localStorage.setItem("courses", JSON.stringify(courses))
+    students.push(data);
+    window.localStorage.setItem("students", JSON.stringify(students));
+    alert("your forb has been submited  !");
+  });
+}
+classPage.addEventListener("click", () => {
+  const courses = JSON.parse(window.localStorage.getItem("courses")) || [];
+  const maxSeats = 15;
+
+  page.innerHTML = "";
 
   for (let i = 0; i < courses.length; i++) {
-    console.log(courses[i].remainingSeats)
-    page.innerHTML += `${courses[i].remainingSeats} <br>`
+    const course = courses[i];
+    const seats = course.remainingSeats ?? 0;
     
+    const fillPercentage = Math.round((seats / maxSeats) * 100);
+
+    let badgeBg = "bg-emerald-100 text-emerald-800 border-emerald-200";
+    let progressBg = "bg-emerald-500";
+    
+    if (fillPercentage <= 20) {
+      badgeBg = "bg-rose-100 text-rose-800 border-rose-200";
+      progressBg = "bg-rose-500";
+    } else if (fillPercentage <= 50) {
+      badgeBg = "bg-amber-100 text-amber-800 border-amber-200";
+      progressBg = "bg-amber-500";
+    }
+
+    page.innerHTML += `
+    
+      <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 mb-4 max-w-md">
+        <div class="flex items-start justify-between gap-3 mb-3">
+          <div>
+            <span class="inline-block text-xs font-semibold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-md mb-1">
+              ${course.subject}
+            </span>
+            <h1 class="text-lg font-bold text-slate-800 leading-snug">
+              ${course.title}
+            </h1>
+          </div>
+          <span class="text-xs font-semibold px-2.5 py-1 rounded-full border shrink-0 ${badgeBg}">
+            ${seats} / ${maxSeats} places
+          </span>
+        </div>
+
+        <div class="flex items-center text-xs text-slate-500 gap-4 mb-4">
+          <span class="flex items-center gap-1"> ${course.location}</span>
+          <span class="flex items-center gap-1"> ${course.slot}</span>
+        </div>
+
+        <div class="space-y-1.5">
+          <div class="flex justify-between items-center text-xs font-medium">
+            <span class="text-slate-600">Disponibilité</span>
+            <span class="text-slate-900 font-bold">${fillPercentage}%</span>
+          </div>
+          
+          <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+            <div 
+              class="${progressBg} h-full rounded-full transition-all duration-300 ease-out" 
+              style="width: ${fillPercentage}%"
+              role="progressbar"
+              aria-valuenow="${seats}"
+              aria-valuemin="0"
+              aria-valuemax="${maxSeats}">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    `;
   }
-  
-})
+});
+
+
+
 // document.getElementById("page").innerHTML = ""
