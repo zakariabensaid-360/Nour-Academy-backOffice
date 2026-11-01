@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="fr" class="h-full bg-slate-50">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Dashboard - Nour Academy</title>
+  </head>
+
+  <body class="min-h-screen text-slate-800 m-0 p-0 antialiased flex">
+    <aside
+      class="w-64 shrink-0 bg-slate-900 text-slate-300 flex flex-col border-r border-slate-800 shadow-xl min-h-screen"
+    >
+      <div class="p-6 border-b border-slate-800 flex items-center gap-3">
+        <div
+          class="h-10 w-10 rounded-xl bg-cyan-500 flex items-center justify-center text-white font-black text-lg shadow-lg shadow-cyan-500/30"
+        >
+          N
+        </div>
+        <div>
+          <h1 class="font-bold text-white tracking-wide">Nour Academy</h1>
+          <p class="text-xs text-slate-400">Espace Secrétariat</p>
+        </div>
+      </div>
+
+      <nav class="flex-1 p-4 space-y-2 font-medium">
+        <a
+        id="BoardPage"
+          href="#dashboard"
+          class="flex items-center gap-3 px-4 py-3 rounded-xl bg-cyan-600 text-white shadow-lg shadow-cyan-600/20 transition"
+        >
+          Tableau de bord
+        </a>
+        <a
+        id="FormPage"
+          href="#ajouter-inscription"
+          class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 hover:text-white transition"
+        >
+          Ajouter inscription
+        </a>
+
+                <a
+        id="ClassPage"
+          href="#class-page"
+          class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-slate-800 hover:text-white transition"
+        >
+          Classes
+        </a>
+      </nav>
+    </aside>
+
+    <div id="page" class="flex-1 flex flex-col min-w-0">
+
+    </div>
+    <script src="../src/dashboard.js"></script>
+    <script type="module" src="../src/form.js"></script>
+  </body>
+</html>

@@ -1,4 +1,7 @@
-let data = [
+
+
+
+let courses = [
   {
     id: "c1",
     title: "Soutien Mathématiques",
@@ -7,7 +10,7 @@ let data = [
     slot: "Samedi 09:00 - 11:00",
     location: "Nador Centre",
     price: 350,
-    remainingSeats: 6,
+    remainingSeats: 15,
   },
   {
     id: "c2",
@@ -17,7 +20,7 @@ let data = [
     slot: "Samedi 11:15 - 13:15",
     location: "Hay Al Matar",
     price: 300,
-    remainingSeats: 4,
+    remainingSeats: 15,
   },
   {
     id: "c3",
@@ -27,7 +30,7 @@ let data = [
     slot: "Mercredi 15:00 - 17:00",
     location: "Nador Centre",
     price: 400,
-    remainingSeats: 8,
+    remainingSeats: 15,
   },
   {
     id: "c4",
@@ -37,7 +40,7 @@ let data = [
     slot: "Samedi 15:00 - 17:00",
     location: "Selouane",
     price: 400,
-    remainingSeats: 0,
+    remainingSeats: 15,
   },
   {
     id: "c5",
@@ -47,7 +50,7 @@ let data = [
     slot: "Dimanche 10:00 - 12:00",
     location: "Hay Al Matar",
     price: 380,
-    remainingSeats: 3,
+    remainingSeats: 15,
   },
   {
     id: "c6",
@@ -57,7 +60,7 @@ let data = [
     slot: "Dimanche 09:00 - 11:00",
     location: "Nador Centre",
     price: 450,
-    remainingSeats: 5,
+    remainingSeats: 15,
   },
   {
     id: "c7",
@@ -67,7 +70,7 @@ let data = [
     slot: "Samedi 17:00 - 19:00",
     location: "Selouane",
     price: 450,
-    remainingSeats: 2,
+    remainingSeats: 15,
   },
   {
     id: "c8",
@@ -77,7 +80,7 @@ let data = [
     slot: "Samedi 14:00 - 16:30",
     location: "Nador Centre",
     price: 550,
-    remainingSeats: 7,
+    remainingSeats: 15,
   },
   {
     id: "c9",
@@ -87,7 +90,7 @@ let data = [
     slot: "Dimanche 11:15 - 13:45",
     location: "Hay Al Matar",
     price: 550,
-    remainingSeats: 0,
+    remainingSeats: 15,
   },
   {
     id: "c10",
@@ -97,7 +100,7 @@ let data = [
     slot: "Mercredi 17:00 - 19:00",
     location: "Nador Centre",
     price: 500,
-    remainingSeats: 9,
+    remainingSeats: 15,
   },
   {
     id: "c11",
@@ -107,7 +110,7 @@ let data = [
     slot: "Dimanche 15:00 - 17:00",
     location: "Selouane",
     price: 400,
-    remainingSeats: 12,
+    remainingSeats: 15,
   },
   {
     id: "c12",
@@ -117,38 +120,61 @@ let data = [
     slot: "Samedi 11:00 - 13:00",
     location: "Hay Al Matar",
     price: 350,
-    remainingSeats: 1,
+    remainingSeats: 15,
   },
 ];
 
-if (window.localStorage.getItem("db") == undefined) {
-  window.localStorage.setItem("db", JSON.stringify(data));
+/* main logic */
+let search = document.getElementById("search")
+let locationSelect = document.getElementById("location");
+let levelSelect = document.getElementById("level");
+let subjectSelect = document.getElementById("subject");
+let main = document.getElementById("cards");
+let CartLogo = document.getElementById("cart")
+let CartNum = document.getElementById("CartNum")
+
+// courses
+if (window.localStorage.getItem("courses") == undefined) {
+  window.localStorage.setItem("courses", JSON.stringify(courses));
 }
 
-let db = JSON.parse(window.localStorage.getItem("db"));
-let main = document.getElementById("cards");
- // let modal = document.getElementById("modal")
-let cart = document.getElementById("cart")
-let cart_num = document.getElementById("cart-num")
+// students
+if(window.localStorage.getItem("students") == undefined) {
+  window.localStorage.setItem("students", JSON.stringify([]))
+}
+// CartItems
+if(window.localStorage.getItem("CartItems") == undefined) {
+    window.localStorage.setItem("CartItems", JSON.stringify([]))
+}
+// Admin
+if(window.localStorage.getItem("admin") == undefined) {
+  window.localStorage.setItem("admin", JSON.stringify({
+    email: "admin@gmail.com",
+    password: "admin"
+  }))
+}
 
 
-cart.addEventListener("click", () => {
-  if(cart_num.textContent == 0) {
+let cartitems = JSON.parse(window.localStorage.getItem("CartItems"))
+let db = courses
+
+
+
+
+CartLogo.addEventListener("click", () => {
+  if(CartNum.textContent == 0) {
     return
   }
-  window.location.href = "/process.html"
+  window.location.href = "/form.html"
 })
   
 
-let cartitems = []
-cart_num.textContent = cartitems.length
-  if(cart_num.textContent == 0) {
-    cart_num.classList += " hidden"
+
+CartNum.textContent = cartitems.length
+  if(CartNum.textContent == 0) {
+    CartNum.classList += " hidden"
   }
-/*
-  const hide = () => {
-    modal.className += " hidden"
-  }*/
+
 
 const findItemByid = (id) => {
   for (let i = 0; i < cartitems.length; i++) {
@@ -181,18 +207,50 @@ function addtocart(id) {
 
 if(findItemByid(id)) return alert("you cannot add same course twice");
 removeSeat(id)
-  cart_num.classList.remove("hidden")  
-  cart_num.textContent = Number(cart_num.textContent) + 1
+  CartNum.classList.remove("hidden")  
+  CartNum.textContent = Number(CartNum.textContent) + 1
   for(let i = 0; i < db.length; i++) {
     if(db[i].id == id)
     cartitems.push(db[i])
   }
 window.addtocart = addtocart;
 
-    window.localStorage.setItem("cart_items", JSON.stringify(cartitems))
+    window.localStorage.setItem("CartItems", JSON.stringify(cartitems))
 
-console.log("test")
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  render cards && filtering */
+
+
+
 const rerender = (itemsToRender) => {
     main.innerHTML = "";
     itemsToRender.forEach((item) => {
@@ -234,12 +292,12 @@ const rerender = (itemsToRender) => {
     });
 };
 
-rerender(db);
+rerender(courses);
 
-let search = document.getElementById("search")
-let locationSelect = document.getElementById("location");
-let levelSelect = document.getElementById("level");
-let subjectSelect = document.getElementById("subject");
+
+
+
+
 
 const applyFilters = () => {
   
@@ -248,7 +306,7 @@ const applyFilters = () => {
     let selectedLevel = levelSelect.value;
     let selectedLocation = locationSelect.value;
     let inp = search.value
-    let filtered = db.filter((item) => {
+    let filtered = courses.filter((item) => {
         let matchesSubject = selectedSubject === "" || item.subject === selectedSubject;
         let matchesLevel = selectedLevel === "" || item.level === selectedLevel;
         let matchesLocation = selectedLocation === "" || item.location === selectedLocation;
