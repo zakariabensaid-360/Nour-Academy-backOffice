@@ -1,7 +1,7 @@
 
 
 
-let courses = [
+let coursesss = [
   {
     id: "c1",
     title: "Soutien Mathématiques",
@@ -135,7 +135,7 @@ let CartNum = document.getElementById("CartNum")
 
 // courses
 if (window.localStorage.getItem("courses") == undefined) {
-  window.localStorage.setItem("courses", JSON.stringify(courses));
+  window.localStorage.setItem("courses", JSON.stringify(coursesss));
 }
 
 // students
@@ -154,9 +154,10 @@ if(window.localStorage.getItem("admin") == undefined) {
   }))
 }
 
+let courses = JSON.parse(window.localStorage.getItem("courses"))
 
 let cartitems = JSON.parse(window.localStorage.getItem("CartItems"))
-let db = courses
+let db = coursesss
 
 
 
